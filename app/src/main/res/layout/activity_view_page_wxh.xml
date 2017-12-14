@@ -1,9 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.sfhan.testdemo.activity.ViewPageWXh">
+    <android.support.v4.view.ViewPager
+        android:layout_margin="10dp"
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"/>
 
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/viewPager"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="5dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="欢乐过齐欢聚,共享团圆年"
+            android:textColor="#0c2"
+            android:textSize="18sp"/>
+
+
+        <LinearLayout
+            android:id="@+id/dot_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"></LinearLayout>
+
+        </LinearLayout>
+
+</RelativeLayout>

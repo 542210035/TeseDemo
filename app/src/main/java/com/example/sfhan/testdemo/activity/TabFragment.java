@@ -5,9 +5,11 @@ package com.example.sfhan.testdemo.activity;
  */
 import java.util.Random;
 
+import android.app.ActionBar;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class TabFragment extends Fragment {
 
@@ -35,15 +39,12 @@ public class TabFragment extends Fragment {
                              Bundle savedInstanceState)
     {
         ImageView tv = new ImageView(getActivity());
-//        tv.setTextSize(60);
+
         Random r = new Random();
-//        tv.setBackgroundColor(Color.argb(r.nextInt(120), r.nextInt(255),
-//                r.nextInt(255), r.nextInt(255)));
-
-
-      tv.setScaleType(ImageView.ScaleType.CENTER);
+        tv.setBackgroundColor(Color.argb(r.nextInt(120), r.nextInt(255),
+                r.nextInt(255), r.nextInt(255)));
+        tv.setScaleType(ImageView.ScaleType.FIT_XY);
         tv.setImageResource(mTitle);
-
         return tv;
 
     }
