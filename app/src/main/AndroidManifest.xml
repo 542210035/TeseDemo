@@ -22,11 +22,19 @@
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.ViewPageDEemo"
+            android:name=".ViewPage.ViewPageDEemo"
             android:screenOrientation="portrait" />
-        <activity android:name=".activity.ViewPageWXh"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".ViewPage.ViewPageWXh"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ViewPage.ViewPageMAX"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Fragment.FragmentAll"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ViewPage.ViewPageTab"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

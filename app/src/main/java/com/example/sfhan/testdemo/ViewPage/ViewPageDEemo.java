@@ -1,4 +1,4 @@
-package com.example.sfhan.testdemo.activity;
+package com.example.sfhan.testdemo.ViewPage;
 
 
 import android.support.v4.app.FragmentActivity;
@@ -12,6 +12,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 
 import com.example.sfhan.testdemo.R;
+import com.example.sfhan.testdemo.activity.ColorTrackView;
 
 public class ViewPageDEemo extends FragmentActivity {
 

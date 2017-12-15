@@ -1,24 +1,17 @@
-package com.example.sfhan.testdemo.activity;
+package com.example.sfhan.testdemo.ViewPage;
 
 /**
  * Created by sfhan on 2017/12/13.
  */
 import java.util.Random;
 
-import android.app.ActionBar;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 public class TabFragment extends Fragment {
 

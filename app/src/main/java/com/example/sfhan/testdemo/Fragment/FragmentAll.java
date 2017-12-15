@@ -1,7 +1,8 @@
-package com.example.sfhan.testdemo.activity;
+package com.example.sfhan.testdemo.Fragment;
 
 import android.content.Context;
 import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,13 +13,16 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.sfhan.testdemo.Fragment.FragmentAll;
 import com.example.sfhan.testdemo.R;
 import com.example.sfhan.testdemo.ViewPage.ViewPageMAX;
 import com.example.sfhan.testdemo.ViewPage.ViewPageWXh;
+import com.example.sfhan.testdemo.activity.BaseActivity;
+import com.example.sfhan.testdemo.activity.LoginActivity;
+import com.example.sfhan.testdemo.activity.MainActivity;
 
-public class LoginActivity extends BaseActivity implements AdapterView.OnItemClickListener {
-    private Context mContext=LoginActivity.this;
+public class FragmentAll extends BaseActivity implements AdapterView.OnItemClickListener {
+
+    private Context mContext=FragmentAll.this;
     private GridView gridView;
     private Intent intent;
 
@@ -31,25 +35,25 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemCli
 
     };
     private String [] strNick= new String[]{
-            "Fragment系列",
-            "Viewpager系列",
-            "Dialog",
-            "ViewPageWXXH",
-            "ViewPageTab"
+            "Fragment",
+            "Fragment",
+            "Fragment",
+            "Fragment",
+            "Fragment"
     };
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_fragment_all);
         initView();
     }
 
 
     private void initView(){
         gridView= (GridView) findViewById(R.id.gr_login);
-        gridView.setAdapter(new adapter());
+        gridView.setAdapter(new adaptern());
         gridView.setOnItemClickListener(this);
 
     }
@@ -59,7 +63,7 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemCli
         switch (position)
         {
             case 0:
-                intent=new Intent(mContext,FragmentAll.class);
+                intent=new Intent(mContext,MainActivity.class);
                 startActivity(intent);
                 break;
 
@@ -86,7 +90,7 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemCli
         }
     }
 
-    private class adapter extends BaseAdapter {
+    private class adaptern extends BaseAdapter {
 
         @Override
         public int getCount() {
@@ -107,10 +111,10 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemCli
         public View getView(int position, View convertView, ViewGroup parent) {
             View view= LayoutInflater.from(mContext).inflate(R.layout.gr_adapter_content,null);
             ImageView iv= (ImageView) view.findViewById(R.id.ap_iV);
-                iv.setImageResource(itemImage[position]);
+            iv.setImageResource(itemImage[position]);
 
             TextView tv= (TextView) view.findViewById(R.id.ap_tv);
-                tv.setText(""+strNick[position]);
+            tv.setText(""+strNick[position]);
 
 
             return view;

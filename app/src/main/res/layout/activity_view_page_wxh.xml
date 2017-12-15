@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.sfhan.testdemo.activity.ViewPageWXh">
+    tools:context="com.example.sfhan.testdemo.ViewPage.ViewPageWXh">
     <android.support.v4.view.ViewPager
         android:layout_margin="10dp"
         android:id="@+id/viewPager"

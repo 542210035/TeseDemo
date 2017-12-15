@@ -1,4 +1,4 @@
-package com.example.sfhan.testdemo.activity;
+package com.example.sfhan.testdemo.ViewPage;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,18 +10,20 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.example.sfhan.testdemo.Fragment.FragmentAll;
 import com.example.sfhan.testdemo.R;
-import com.example.sfhan.testdemo.ViewPage.ViewPageMAX;
-import com.example.sfhan.testdemo.ViewPage.ViewPageWXh;
+import com.example.sfhan.testdemo.activity.BaseActivity;
 
-public class LoginActivity extends BaseActivity implements AdapterView.OnItemClickListener {
-    private Context mContext=LoginActivity.this;
+import java.util.ArrayList;
+import java.util.List;
+
+public class ViewPageMAX extends BaseActivity implements AdapterView.OnItemClickListener{
+
+    private Context mContext=ViewPageMAX.this;
     private GridView gridView;
     private Intent intent;
-
     private int [] itemImage=new int[]{
             R.color.bbb,
             R.color.aaa,
@@ -31,25 +33,25 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemCli
 
     };
     private String [] strNick= new String[]{
-            "Fragment系列",
-            "Viewpager系列",
-            "Dialog",
-            "ViewPageWXXH",
-            "ViewPageTab"
+            "滑动填充字体颜色",
+            "无限循环带圆点",
+            "ViewPageTab",
+            "ViewPage",
+            "ViewPage"
     };
 
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_view_page_max);
         initView();
     }
 
 
     private void initView(){
-        gridView= (GridView) findViewById(R.id.gr_login);
-        gridView.setAdapter(new adapter());
+        gridView= (GridView) findViewById(R.id.gr_loginn);
+        gridView.setAdapter(new adapterr());
         gridView.setOnItemClickListener(this);
 
     }
@@ -59,17 +61,17 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemCli
         switch (position)
         {
             case 0:
-                intent=new Intent(mContext,FragmentAll.class);
+                intent=new Intent(mContext,ViewPageDEemo.class);
                 startActivity(intent);
                 break;
 
             case 1:
-                intent=new Intent(mContext,ViewPageMAX.class);
+                intent=new Intent(mContext,ViewPageWXh.class);
                 startActivity(intent);
                 break;
 
             case 2:
-                intent=new Intent(mContext,MainActivity.class);
+                intent=new Intent(mContext,ViewPageTab.class);
                 startActivity(intent);
                 break;
 
@@ -78,16 +80,11 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemCli
                 intent=new Intent(mContext,ViewPageWXh.class);
                 startActivity(intent);
                 break;
-
-
-
-
-
         }
     }
 
-    private class adapter extends BaseAdapter {
 
+    private class adapterr extends BaseAdapter {
         @Override
         public int getCount() {
             return itemImage.length;
@@ -107,12 +104,9 @@ public class LoginActivity extends BaseActivity implements AdapterView.OnItemCli
         public View getView(int position, View convertView, ViewGroup parent) {
             View view= LayoutInflater.from(mContext).inflate(R.layout.gr_adapter_content,null);
             ImageView iv= (ImageView) view.findViewById(R.id.ap_iV);
-                iv.setImageResource(itemImage[position]);
-
+            iv.setImageResource(itemImage[position]);
             TextView tv= (TextView) view.findViewById(R.id.ap_tv);
-                tv.setText(""+strNick[position]);
-
-
+            tv.setText(""+strNick[position]);
             return view;
         }
     }
