@@ -37,6 +37,7 @@ public class ViewPageDEemo extends FragmentActivity {
     private void initViews()
     {
         mViewPager = (ViewPager) findViewById(R.id.id_viewpager);
+        mViewPager.setPageTransformer(true,new DepthPageTransformer());
 
         mTabs.add((ColorTrackView) findViewById(R.id.id_tab_01));
         mTabs.add((ColorTrackView) findViewById(R.id.id_tab_02));

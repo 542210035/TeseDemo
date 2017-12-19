@@ -33,7 +33,12 @@
         <activity
             android:name=".Fragment.FragmentAll"
             android:screenOrientation="portrait" />
-        <activity android:name=".ViewPage.ViewPageTab"
+        <activity
+            android:name=".ViewPage.ViewPageTab"
+            android:screenOrientation="portrait" />
+        <activity android:name=".SecondActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".SecondActivity1"
             android:screenOrientation="portrait"/>
     </application>
 

@@ -1,6 +1,7 @@
 package com.example.sfhan.testdemo.ViewPage;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.os.SystemClock;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.sfhan.testdemo.R;
+import com.example.sfhan.testdemo.SecondActivity;
+import com.example.sfhan.testdemo.SecondActivity1;
 import com.example.sfhan.testdemo.activity.BaseActivity;
 
 import java.util.ArrayList;
@@ -65,6 +68,7 @@ public class ViewPageWXh extends BaseActivity implements ViewPager.OnPageChangeL
 
     private void initView(){
         viewPager= (ViewPager) findViewById(R.id.viewPager);
+        viewPager.setPageTransformer(true,new DepthPageTransformer());
         title= (TextView) findViewById(R.id.title);
         dotGroup= (LinearLayout) findViewById(R.id.dot_group);
         activityMain= (RelativeLayout) findViewById(R.id.activity_main);
@@ -75,7 +79,8 @@ public class ViewPageWXh extends BaseActivity implements ViewPager.OnPageChangeL
         int item = Integer.MAX_VALUE / 2 - (Integer.MAX_VALUE / 2 % imageList.size());
         Log.d(TAG, "item=" + item);
 
-        /**在使用ViewPager的过程中，有需要直接跳转到某一个页面的情况，这个时候就需要用到ViewPager的setCurrentItem方法了，它的意思是跳转到ViewPager的指定页面
+        /**在使用ViewPager的过程中，有需要直接跳转到某一个页面的情况，
+         * 这个时候就需要用到ViewPager的setCurrentItem方法了，它的意思是跳转到ViewPager的指定页面
          */
         viewPager.setCurrentItem(item);
 
@@ -107,7 +112,7 @@ public class ViewPageWXh extends BaseActivity implements ViewPager.OnPageChangeL
         for (int i=0;i<imageUrl.length;i++){
             im=new ImageView(mContext);
 
-            //好用Glide需要导入jar包
+            //要用Glide ，需要导入jar包
             Glide.with(this).load(imageUrl[i])
                     .crossFade()
                     .centerCrop()
@@ -118,7 +123,7 @@ public class ViewPageWXh extends BaseActivity implements ViewPager.OnPageChangeL
             dotView.setBackgroundResource(R.drawable.selector_dot);
 
             //设置小圆点宽和高
-            LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(10,10);
+            LinearLayout.LayoutParams params=new LinearLayout.LayoutParams(13,13);
             //设置每个小圆点之间的距离
             if (i !=0){
                 params.leftMargin=13;
@@ -172,11 +177,29 @@ public class ViewPageWXh extends BaseActivity implements ViewPager.OnPageChangeL
     //初始化每个条目要显示的内容
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        int newPostion = position % imageList.size();
+
+         final int newPostion = position % imageList.size();
         //获取到条目要显示的内容imageView
         ImageView img = imageList.get(newPostion);
         container.addView(img);
+        //点击ViewPager的每一项
+        View viewClick=imageList.get(newPostion);
+        viewClick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch (newPostion){
+                   case 0: //跳转到详情界面
+                    Intent intent = new Intent(ViewPageWXh.this, SecondActivity.class);
+                    startActivity(intent);
+                       break;
+                    case 1:
+                        Intent intent1 = new Intent(ViewPageWXh.this, SecondActivity1.class);
+                        startActivity(intent1);
+                }
+            }
+        });
         return img;
+
     }
 
 
